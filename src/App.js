@@ -259,7 +259,7 @@ export default function App() {
             <div style={{ maxWidth: 1000, margin: "40px auto" }}>
               <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 48, fontWeight: 900, marginBottom: 8 }}>About <span style={{ color: accent }}>Me</span></h2>
               <div style={{ width: 60, height: 4, background: accent, borderRadius: 2, marginBottom: 40 }}></div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40 }}>
+              <div className="section-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40 }}>
                 <div>
                   <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 16, lineHeight: 1.8, color: sub, marginBottom: 24 }}>
                     A results-driven banking professional with deep expertise in Retail Banking, Auto Loans, and Wealth Management. Known for building high-performance sales teams and delivering consistent revenue growth across competitive markets.
@@ -267,7 +267,7 @@ export default function App() {
                   <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 16, lineHeight: 1.8, color: sub }}>
                     Currently pursuing MBA (Marketing) from NMIMS while continuing to lead at HDFC Bank — demonstrating commitment to lifelong growth.
                   </p>
-                  <div style={{ marginTop: 32, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                  <div className="section-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40 }}>
                     {[["📍", "Mumbai, India"], ["📧", "gopalashish79@yahoo.com"], ["📱", "+91 9820642647"], ["🎓", "MBA – NMIMS (ongoing)"]].map(([icon, val]) => (
                       <div key={val} style={{ display: "flex", alignItems: "center", gap: 10, fontFamily: "'DM Sans', sans-serif", fontSize: 14 }}>
                         <span style={{ fontSize: 18 }}>{icon}</span>
@@ -325,7 +325,7 @@ export default function App() {
             <div style={{ maxWidth: 1000, margin: "40px auto" }}>
               <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 48, fontWeight: 900, marginBottom: 8 }}>Career <span style={{ color: accent }}>Achievements</span></h2>
               <div style={{ width: 60, height: 4, background: accent, borderRadius: 2, marginBottom: 40 }}></div>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+              <div className="section-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40 }}>
                 {achievements.map((a, i) => (
                   <div key={i} className="ach-card" style={{ background: card, borderColor: cardBorder }}>
                     <div style={{ fontSize: 32, marginBottom: 12 }}>{a.icon}</div>
@@ -335,7 +335,7 @@ export default function App() {
                   </div>
                 ))}
               </div>
-              <div style={{ marginTop: 40, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+              <div className="section-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40 }}>
                 {[
                   { label: "AI in Finance", sub: "Centre for Finance, Technology & Entrepreneurship", year: "2026", icon: "🤖" },
                   { label: "Technicals, Options & Derivatives", sub: "Infinity Institute of Capital Market", year: "2008–2009", icon: "📊" }
@@ -389,7 +389,7 @@ export default function App() {
               <div style={{ textAlign: "center", maxWidth: 600 }}>
                 <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 52, fontWeight: 900, marginBottom: 12 }}>Let's <span style={{ color: accent }}>Connect</span></h2>
                 <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 16, color: sub, marginBottom: 48, lineHeight: 1.7 }}>Open to senior leadership opportunities in Retail Banking, Wealth Management, and Channel Management.</p>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 40 }}>
+                <div className="section-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40 }}>
                   {[
                     { icon: "📧", label: "Email", value: "gopalashish79@yahoo.com", href: "mailto:gopalashish79@yahoo.com" },
                     { icon: "📱", label: "Phone", value: "+91 9820642647", href: "tel:+919820642647" },
