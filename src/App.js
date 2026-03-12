@@ -168,8 +168,8 @@ export default function App() {
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
         ::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track { background: transparent; } ::-webkit-scrollbar-thumb { background: #3B82F6; border-radius: 2px; }
-        .nav-dot { width: 8px; height: 8px; border-radius: 50%; transition: all .3s; cursor: pointer; border: 2px solid #3B82F6; }
-        .nav-dot.active { width: 24px; border-radius: 4px; background: #3B82F6; }
+        //.nav-dot { width: 8px; height: 8px; border-radius: 50%; transition: all .3s; cursor: pointer; border: 2px solid #3B82F6; }
+        //.nav-dot.active { width: 24px; border-radius: 4px; background: #3B82F6; }
         .skill-tag { display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-family: 'DM Sans', sans-serif; font-weight: 500; margin: 4px; transition: all .2s; cursor: default; }
         .skill-tag:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(59,130,246,0.3); }
         .exp-card { border-radius: 16px; padding: 24px; margin-bottom: 16px; transition: all .3s; cursor: default; border: 1px solid; }
@@ -200,9 +200,9 @@ export default function App() {
       `}</style>
 
       {/* Top Nav */}
-      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, padding: "16px 40px", display: "flex", alignItems: "center", justifyContent: "space-between", backdropFilter: "blur(20px)", background: dark ? "rgba(10,10,15,0.85)" : "rgba(248,248,252,0.85)", borderBottom: `1px solid ${cardBorder}` }}>
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, padding: window.innerWidth < 768 ? "12px 16px" : "16px 40px", display: "flex", alignItems: "center", justifyContent: "space-between", backdropFilter: "blur(20px)", background: dark ? "rgba(10,10,15,0.85)" : "rgba(248,248,252,0.85)", borderBottom: `1px solid ${cardBorder}` }}>
         <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 900, fontSize: 20, color: accent }}>RG</div>
-        <div style={{ display: "flex", gap: 8 }}>
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "center" }}>
           {sections.map((s, i) => (
             <button key={i} onClick={() => goTo(i)} style={{ background: active === i ? accent : "transparent", color: active === i ? "white" : sub, border: "none", padding: "6px 14px", borderRadius: 20, fontFamily: "'DM Sans', sans-serif", fontSize: 13, fontWeight: 500, cursor: "pointer", transition: "all .2s" }}>{s}</button>
           ))}
@@ -218,15 +218,60 @@ export default function App() {
       </div>
 
       {/* Main content */}
-      <div ref={containerRef} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd} style={{ paddingTop: 80, minHeight: "100vh", display: "flex", flexDirection: "column" }}>
-        <div style={{ ...slideStyle, flex: 1, padding: "0 40px 40px" }}>
+      <div
+  ref={containerRef}
+  onTouchStart={onTouchStart}
+  onTouchEnd={onTouchEnd}
+  style={{
+    paddingTop: 120,
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column"
+  }}
+>
+  <div
+    style={{
+      ...slideStyle,
+      flex: 1,
+      padding: window.innerWidth < 768 ? "0 20px 40px" : "0 40px 40px"
+    }}
+  >
 
           {/* HOME */}
           {active === 0 && (
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: "calc(100vh - 120px)", gap: 80 }}>
+<div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    minHeight: "calc(100vh - 120px)",
+    gap: 40,
+    flexWrap: "wrap",
+    flexDirection: window.innerWidth < 768 ? "column" : "row",
+    textAlign: window.innerWidth < 768 ? "center" : "left"
+  }}
+>
               <div className="float" style={{ position: "relative" }}>
-                <div className="pulse-ring" style={{ width: 220, height: 220, borderRadius: "50%", overflow: "hidden", border: "4px solid #3B82F6" }}>
-                  <img src={PROFILE_IMG} alt="Ramgopal Ghosh" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
+<div
+  className="pulse-ring"
+  style={{
+    width: "clamp(170px, 38vw, 240px)",
+    height: "clamp(170px, 38vw, 240px)",
+    borderRadius: "50%",
+    overflow: "hidden",
+    border: "4px solid #3B82F6"
+  }}
+>
+                 <img
+  src={PROFILE_IMG}
+  alt="Ramgopal Ghosh"
+  style={{
+    width: "100%",
+    height: "100%",
+    objectFit: "contain",
+    objectPosition: "center 25%"
+  }}
+/>
                 </div>
                 <div style={{ position: "absolute", bottom: 10, right: 10, background: "#22C55E", width: 20, height: 20, borderRadius: "50%", border: "3px solid " + bg }}></div>
               </div>
@@ -242,7 +287,7 @@ export default function App() {
                   <button className="btn btn-primary" onClick={downloadCV}>⬇ Download CV</button>
                   <button className="btn btn-outline" onClick={() => goTo(5)}>Contact Me</button>
                 </div>
-                <div style={{ display: "flex", gap: 32 }}>
+                <div style={{ display: "flex", gap: 32, flexWrap: "wrap", justifyContent: "center" }}>
                   {[["20+", "Years Exp."], ["₹150Cr+", "Disbursed/yr"], ["67", "Branches Led"]].map(([n,l]) => (
                     <div key={l}>
                       <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, fontWeight: 700, color: accent }}>{n}</div>
@@ -340,7 +385,7 @@ export default function App() {
                   { label: "AI in Finance", sub: "Centre for Finance, Technology & Entrepreneurship", year: "2026", icon: "🤖" },
                   { label: "Technicals, Options & Derivatives", sub: "Infinity Institute of Capital Market", year: "2008–2009", icon: "📊" }
                 ].map((c, i) => (
-                  <div key={i} className="ach-card" style={{ background: card, borderColor: cardBorder, display: "flex", gap: 16, alignItems: "center" }}>
+                  <div key={i} className="ach-card" style={{ background: card, borderColor: cardBorder, display: "flex", alignItems: "center" }}>
                     <div style={{ fontSize: 28 }}>{c.icon}</div>
                     <div>
                       <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 15, fontWeight: 700 }}>{c.label}</div>
