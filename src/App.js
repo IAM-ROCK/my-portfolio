@@ -369,9 +369,14 @@ export default function Portfolio() {
             fontFamily: "'DM Sans', sans-serif", fontSize: 13
           }}>{dark ? "☀️" : "🌙"}</button>
           {/* Hamburger */}
-          <button className="hamburger" onClick={() => setMenuOpen(true)} style={{ color: text }}>
-            <span /><span /><span />
-          </button>
+          
+<button
+  className="hamburger"
+  onClick={() => setMenuOpen(true)}
+  style={{ color: text }}
+>
+  <span /><span /><span />
+</button>
         </div>
       </nav>
 
@@ -566,7 +571,7 @@ export default function Portfolio() {
                   {[
                     { icon: "📧", label: "Email", value: "gopalashish79@yahoo.com", href: "mailto:gopalashish79@yahoo.com" },
                     { icon: "📱", label: "Phone", value: "+91 9820642647", href: "tel:+919820642647" },
-                    { icon: "💼", label: "LinkedIn", value: "View Profile", href: "#" },
+                    { icon: "💼", label: "LinkedIn", value: "View Profile", href: "https://www.linkedin.com/in/ramgopal-ghosh-aa8b0028/" },
                     { icon: "📍", label: "Location", value: "Mumbai, India", href: null }
                   ].map((c, i) => (
                     <div key={i} style={{ background: card, border: `1px solid ${cardBorder}`, borderRadius: 14, padding: "20px", textAlign: "left" }}>

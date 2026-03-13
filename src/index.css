@@ -12,3 +12,22 @@ code {
     monospace;
 }
 
+/* In your CSS — spans use currentColor so they inherit the button's color */
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: currentColor; /* ← inherits from button's color prop */
+  border-radius: 2px;
+  transition: background-color 0.2s ease;
+}
